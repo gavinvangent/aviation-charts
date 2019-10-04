@@ -1,0 +1,95 @@
+{
+  "name": "aviation-charts",
+  "author": "Gavin van Gent",
+  "version": "1.0.0",
+  "description": "Serverless application to fetch airport charts, manipulate them as required and make them available for download",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "npm run package",
+    "coverage": "npx nyc npx mocha",
+    "lint": "npx tslint -c tslint.json --project tsconfig.json",
+    "offline": "npm run sls -- offline",
+    "package": "npm run sls -- package",
+    "sls": "npx serverless",
+    "start": "npm run sls -- offline start --port 12012",
+    "test": "npx mocha"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "all": true,
+    "exclude": [
+      "node_modules",
+      "scripts",
+      "test",
+      "*.js",
+      "src/functions/*/index.ts"
+    ],
+    "check-coverage": true,
+    "cache": true,
+    "branches": 95,
+    "lines": 95,
+    "functions": 95,
+    "statements": 95,
+    "watermarks": {
+      "lines": [
+        95,
+        100
+      ],
+      "functions": [
+        95,
+        100
+      ],
+      "branches": [
+        95,
+        100
+      ],
+      "statements": [
+        95,
+        100
+      ]
+    }
+  },
+  "pre-commit": [
+    "lint",
+    "coverage",
+    "build"
+  ],
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.33",
+    "@types/chai": "4.2.3",
+    "@types/chai-as-promised": "7.1.2",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.7.11",
+    "@types/sinon": "7.5.0",
+    "@types/sinon-chai": "3.2.3",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "mocha": "6.2.1",
+    "mockdate": "2.0.5",
+    "nyc": "14.1.1",
+    "pre-commit": "1.2.2",
+    "serverless": "1.53.0",
+    "serverless-dependson-plugin": "1.1.2",
+    "serverless-localstack": "0.4.19",
+    "serverless-prune-plugin": "1.4.1",
+    "serverless-webpack": "5.3.1",
+    "sinon": "7.5.0",
+    "sinon-chai": "3.3.0",
+    "ts-loader": "6.2.0",
+    "ts-node": "8.4.1",
+    "ts-sinon": "1.0.24",
+    "tslint": "5.20.0",
+    "tslint-config-security": "1.16.0",
+    "tslint-config-standard": "8.0.1",
+    "typescript": "3.6.3",
+    "typescript-tslint-plugin": "0.5.4",
+    "webpack": "4.41.0"
+  },
+  "dependencies": {
+    "aws-sdk": "2.543.0",
+    "source-map-support": "0.5.13"
+  }
+}

@@ -1,0 +1,3 @@
+Variables:
+  region: us-east-1
+  role: ${env:IAM_LAMBDA_ROLE_ARN, 'arn:aws:iam::000000000000:role/serverless-deployer-role'}

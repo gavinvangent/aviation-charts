@@ -1,0 +1,46 @@
+service:
+  name: ${env:SERVICE_NAME, opt:service-name, 'service-lambdas'}
+
+custom:
+  stage: ${env:STAGE, opt:stage, 'local'}
+  variables: ${file(./serverless/config/${self:custom.stage}.yml):Variables}
+
+  region: ${self:custom.variables.region}
+  subsystem: ${self:custom.variables.subsystem, 'yo-typescript-serverless'}
+  alias: 'service'
+
+  dependsOn:
+    enabled: true
+    chains: 10
+
+  prune:
+    automatic: true
+    number: 3
+
+plugins:
+  - serverless-dependson-plugin
+  - serverless-webpack
+  - serverless-prune-plugin
+
+provider:
+  name: aws
+  runtime: nodejs10.x # please check that this matches
+  stackName: ${self:custom.subsystem}-${self:custom.alias}-lambdas
+  stage: ${self:custom.stage}
+  region: ${self:custom.region}
+  cfLogs: true
+  memorySize: 128
+  timeout: 30
+  role: ${self:custom.variables.role}
+  stackTags:
+    service: ${self:service}
+  deploymentBucket:
+    name: ${self:custom.variables.deploymentBucket.name, 'serverless-deployment'}
+  environment:
+    FOO: bar
+
+functions:
+  default: ${file(./serverless/functions/default.yml)}
+  
+resources:
+  - Resources: ${file(./serverless/infrastructure/iam.yml):Resources}

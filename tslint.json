@@ -1,0 +1,24 @@
+{
+    "extends": [
+        "tslint-config-standard",
+        "tslint-config-security"
+    ],
+    "rules": {
+        "indent": [
+            true,
+            "spaces",
+            2
+        ],
+        "ter-indent": [
+            true,
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "space-before-function-paren": false,
+        "strict-type-predicates": false,
+        "tsr-detect-unsafe-properties-access": false,
+        "tsr-detect-possible-timing-attacks": false
+    }
+}
