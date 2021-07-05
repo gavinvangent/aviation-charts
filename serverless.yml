@@ -21,6 +21,7 @@ plugins:
   - serverless-dependson-plugin
   - serverless-webpack
   - serverless-prune-plugin
+  - serverless-offline
 
 provider:
   name: aws

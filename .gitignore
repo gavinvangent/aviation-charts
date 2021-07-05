@@ -62,3 +62,15 @@ typings/
 
 # custom
 dist
+.DS_Store
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
+
+# vs code
+.vscode
+
+delete

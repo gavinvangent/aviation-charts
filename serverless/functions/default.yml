@@ -1,2 +1,4 @@
 handler: src/functions/default/index.default
 name: ${self:custom.subsystem}-${self:custom.alias}-default
+events:
+  - http: GET airports
