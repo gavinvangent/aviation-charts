@@ -89,7 +89,7 @@
     "webpack": "4.41.0"
   },
   "dependencies": {
-    "aws-sdk": "2.543.0",
+    "aws-sdk": "2.814.0",
     "source-map-support": "0.5.13"
   }
 }
