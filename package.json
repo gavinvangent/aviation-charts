@@ -71,7 +71,7 @@
     "mockdate": "2.0.5",
     "nyc": "14.1.1",
     "pre-commit": "1.2.2",
-    "serverless": "1.53.0",
+    "serverless": "3.25.1",
     "serverless-dependson-plugin": "1.1.2",
     "serverless-localstack": "0.4.19",
     "serverless-prune-plugin": "1.4.1",
